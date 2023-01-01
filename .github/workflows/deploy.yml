@@ -45,3 +45,12 @@ jobs:
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+    - name: Executing remote ssh commands using ssh key
+      uses: appleboy/ssh-action@v0.1.6
+      with:
+        host: ${{ secrets.KIDSQUIZ_BE }}
+        username: ${{ secrets.KIDSQUIZ_UBUNTU_USERNAME }}
+        key: ${{ secrets.KIDSQUIZ_KEY }}
+        script: |
+        ~/scripts/restart.sh
