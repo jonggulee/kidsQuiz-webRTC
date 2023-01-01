@@ -53,3 +53,4 @@ jobs:
         username: ${{ secrets.KIDSQUIZ_UBUNTU_USERNAME }}
         key: ${{ secrets.KIDSQUIZ_KEY }}
         script: ~/scripts/restart.sh
+
